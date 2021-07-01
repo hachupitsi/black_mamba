@@ -10,11 +10,12 @@ namespace black_mamba
     {
         static void Main(string[] args)
         {
-            Point p1 = new Point();
-            p1.x = 3;
-            p1.y = 4;
-            p1.sym = '*';
+            Point p1 = new Point(3, 4, '*');
             p1.Draw();
+
+            Point p2 = new Point(8, 3, 'o');
+            p2.Draw();
+
             Console.ReadKey();
         }
     }
