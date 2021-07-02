@@ -8,8 +8,11 @@ namespace black_mamba
 {
     class Snake : Figure
     {
-        public Snake(Point tail, int lenght, Direction dir)
+        public Direction dir;
+
+        public Snake(Point tail, int lenght, Direction _dir)
         {
+            dir = _dir;
             line = new List<Point>();
             for (int x = 0; x <= lenght; x++)
             {
@@ -17,6 +20,21 @@ namespace black_mamba
                 p.Move(x, dir);
                 line.Add(p);
             }
+        }
+
+        public void Move()
+        {
+            line.First().Clear();
+            line.Remove(line.First());
+            line.Add(GetNextPoint());
+            line.Last().Draw();
+        }
+
+        public Point GetNextPoint()
+        {
+            Point nextPoint = new Point(line.Last());
+            nextPoint.Move(1, dir);
+            return nextPoint;
         }
     }
 }
