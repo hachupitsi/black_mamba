@@ -26,18 +26,17 @@ namespace black_mamba
             Point p = new Point(1, 1, '*');
             Snake s = new Snake(p, 8, Direction.DOWN);
             s.DrawLine();
-            Thread.Sleep(300);
-            s.Move();
-            Thread.Sleep(300);
-            s.Move();
-            Thread.Sleep(300);
-            s.Move();
-            Thread.Sleep(300);
-            s.Move();
-            Thread.Sleep(300);
-            s.Move();
-
-            Console.ReadKey();
+            
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    s.changeDirection(key.Key);
+                }
+                Thread.Sleep(300);
+                s.Move();
+            }
         }
     }
 }
