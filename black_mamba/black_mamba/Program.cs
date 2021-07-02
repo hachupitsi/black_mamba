@@ -10,6 +10,12 @@ namespace black_mamba
     {
         static void Main(string[] args)
         {
+            Point p1 = new Point(3, 4, '*');
+            p1.Draw();
+
+            Point p2 = new Point(8, 3, 'o');
+            p2.Draw();
+
             HorLine upLine = new HorLine(0, 30, 0, '#');
             upLine.DrawLine();
 
@@ -21,10 +27,6 @@ namespace black_mamba
 
             VertLine rightLine = new VertLine(30, 1, 29, '#');
             rightLine.DrawLine();
-
-            Point p = new Point(1, 1, '*');
-            Snake s = new Snake(p, 8, Direction.DOWN);
-            s.DrawLine();
 
             Console.ReadKey();
         }
