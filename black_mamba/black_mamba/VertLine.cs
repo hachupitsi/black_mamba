@@ -6,26 +6,15 @@ using System.Threading.Tasks;
 
 namespace black_mamba
 {
-    class VertLine
+    class VertLine : Figure
     {
-        List<Point> line;
-        Point p;
-
-        public VertLine(int x, int yLeft, int yRight, char sym)
+        public VertLine(int x, int yUp, int yDown, char sym)
         {
             line = new List<Point>();
-            for (int y = yLeft; y <= yRight; y++)
+            for (int y = yUp; y <= yDown; y++)
             {
                 p = new Point(x, y, sym);
                 line.Add(p);
-            }
-        }
-
-        public void DrawLine()
-        {
-            foreach (Point p in line)
-            {
-                p.Draw();
             }
         }
     }

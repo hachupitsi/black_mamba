@@ -16,11 +16,17 @@ namespace black_mamba
             Point p2 = new Point(8, 3, 'o');
             p2.Draw();
 
-            HorLine h = new HorLine(3, 10, 4, '#');
-            h.DrawLine();
+            HorLine upLine = new HorLine(0, 30, 0, '#');
+            upLine.DrawLine();
 
-            VertLine v = new VertLine(11, 1, 5, '.');
-            v.DrawLine();
+            HorLine downLine = new HorLine(0, 30, 30, '#');
+            downLine.DrawLine();
+
+            VertLine leftLine = new VertLine(0, 1, 29, '#');
+            leftLine.DrawLine();
+
+            VertLine rightLine = new VertLine(30, 1, 29, '#');
+            rightLine.DrawLine();
 
             Console.ReadKey();
         }

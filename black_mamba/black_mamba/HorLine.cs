@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace black_mamba
 {
-    class HorLine
+    class HorLine : Figure
     {
-        List<Point> line;
-        Point p;
-
         public HorLine(int xLeft, int xRight, int y, char sym)
         {
             line = new List<Point>();
@@ -18,14 +15,6 @@ namespace black_mamba
             {
                 p = new Point(x, y, sym);
                 line.Add(p);
-            }
-        }
-
-        public void DrawLine()
-        {
-            foreach(Point p in line)
-            {
-                p.Draw();
             }
         }
     }
