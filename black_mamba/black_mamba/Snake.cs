@@ -9,6 +9,7 @@ namespace black_mamba
     class Snake : Figure
     {
         public Direction dir;
+        Point head;
 
         public Snake(Point tail, int lenght, Direction _dir)
         {
@@ -51,7 +52,7 @@ namespace black_mamba
 
         public bool Eat(Point food)
         {
-            Point head = GetNextPoint();
+            head = GetNextPoint();
             if (head.Equal(food))
             {
                 food.sym = head.sym;
@@ -60,6 +61,17 @@ namespace black_mamba
             }
             else
                 return false;
+        }
+
+        public bool IsHitTail()
+        {
+            head = line.Last();
+            for (int i = 0; i < line.Count() - 1; i++)
+            {
+                if (line[i].Equal(head))
+                    return true;
+            }
+            return false;
         }
     }
 }

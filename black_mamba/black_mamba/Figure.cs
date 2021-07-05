@@ -18,5 +18,25 @@ namespace black_mamba
                 p.Draw();
             }
         }
+
+        public bool IsHit(Figure figure)
+        {
+            foreach (var p in line)
+            {
+                if (figure.IsHit(p))
+                    return true;
+            }
+            return false;
+        }
+
+        public bool IsHit(Point point)
+        {
+            foreach (var p in line)
+            {
+                if (point.Equal(p))
+                    return true;
+            }
+            return false;
+        }
     }
 }

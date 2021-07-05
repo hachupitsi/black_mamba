@@ -13,17 +13,8 @@ namespace black_mamba
         {
             Console.SetBufferSize(120, 30);
 
-            HorLine upLine = new HorLine(0, 79, 0, '-');
-            upLine.DrawLine();
-
-            HorLine downLine = new HorLine(0, 79, 29, '-');
-            downLine.DrawLine();
-
-            VertLine leftLine = new VertLine(0, 1, 28, '|');
-            leftLine.DrawLine();
-
-            VertLine rightLine = new VertLine(79, 1, 28, '|');
-            rightLine.DrawLine();
+            Walls walls = new Walls(80, 30);
+            walls.DrawWalls();
 
             Point p = new Point(1, 1, '*');
             Snake blackMamba = new Snake(p, 4, Direction.RIGHT);
@@ -35,6 +26,8 @@ namespace black_mamba
             
             while (true)
             {
+                if (walls.IsHit(blackMamba) || blackMamba.IsHitTail())
+                    break;
                 if (blackMamba.Eat(food))
                 {
                     food = foodCreator.Create();
