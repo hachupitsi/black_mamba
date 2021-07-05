@@ -11,31 +11,45 @@ namespace black_mamba
     {
         static void Main(string[] args)
         {
-            HorLine upLine = new HorLine(0, 60, 0, '#');
+            Console.SetBufferSize(120, 30);
+
+            HorLine upLine = new HorLine(0, 79, 0, '-');
             upLine.DrawLine();
 
-            HorLine downLine = new HorLine(0, 60, 30, '#');
+            HorLine downLine = new HorLine(0, 79, 29, '-');
             downLine.DrawLine();
 
-            VertLine leftLine = new VertLine(0, 1, 29, '#');
+            VertLine leftLine = new VertLine(0, 1, 28, '|');
             leftLine.DrawLine();
 
-            VertLine rightLine = new VertLine(60, 1, 29, '#');
+            VertLine rightLine = new VertLine(79, 1, 28, '|');
             rightLine.DrawLine();
 
             Point p = new Point(1, 1, '*');
-            Snake s = new Snake(p, 8, Direction.DOWN);
-            s.DrawLine();
+            Snake blackMamba = new Snake(p, 4, Direction.RIGHT);
+            blackMamba.DrawLine();
+
+            FoodCreator foodCreator = new FoodCreator(80, 30, '?');
+            Point food = foodCreator.Create();
+            food.Draw();
             
             while (true)
             {
+                if (blackMamba.Eat(food))
+                {
+                    food = foodCreator.Create();
+                    food.Draw();
+                }
+                else
+                    blackMamba.Move();
+
+                Thread.Sleep(200);
+
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
-                    s.changeDirection(key.Key);
+                    blackMamba.changeDirection(key.Key);
                 }
-                Thread.Sleep(300);
-                s.Move();
             }
         }
     }

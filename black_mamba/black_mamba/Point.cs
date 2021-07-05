@@ -61,5 +61,10 @@ namespace black_mamba
             sym = ' ';
             Draw();
         }
+
+        public bool Equal(Point p)
+        {
+            return p.x == this.x && p.y == this.y;
+        }
     }
 }

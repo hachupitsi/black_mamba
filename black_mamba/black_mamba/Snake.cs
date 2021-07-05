@@ -48,5 +48,18 @@ namespace black_mamba
             else if (key == ConsoleKey.DownArrow)
                 dir = Direction.DOWN;
         }
+
+        public bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.Equal(food))
+            {
+                food.sym = head.sym;
+                line.Add(food);
+                return true;
+            }
+            else
+                return false;
+        }
     }
 }
