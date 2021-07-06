@@ -42,9 +42,11 @@ namespace black_mamba
                     blackMamba.changeDirection(key.Key);
                 }
             }
-
-            Console.SetCursorPosition(30, 14);
+            
+            Console.SetCursorPosition(35, 14);
             Console.Write("Game over");
+            Console.SetCursorPosition(32, 15);
+            Console.Write("Your score is " + blackMamba.lenght());
             Console.ReadKey();
         }
     }

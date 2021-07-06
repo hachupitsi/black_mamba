@@ -78,5 +78,10 @@ namespace black_mamba
         {
             line.Clear();
         }
+
+        public int lenght()
+        {
+            return line.Count();
+        }
     }
 }
