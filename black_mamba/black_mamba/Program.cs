@@ -23,11 +23,9 @@ namespace black_mamba
             FoodCreator foodCreator = new FoodCreator(80, 30, '?');
             Point food = foodCreator.Create();
             food.Draw();
-            
-            while (true)
+
+            while ((!walls.IsHit(blackMamba)) && (!blackMamba.IsHitTail()))
             {
-                if (walls.IsHit(blackMamba) || blackMamba.IsHitTail())
-                    break;
                 if (blackMamba.Eat(food))
                 {
                     food = foodCreator.Create();
@@ -44,6 +42,10 @@ namespace black_mamba
                     blackMamba.changeDirection(key.Key);
                 }
             }
+
+            Console.SetCursorPosition(30, 14);
+            Console.Write("Game over");
+            Console.ReadKey();
         }
     }
 }

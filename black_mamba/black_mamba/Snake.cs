@@ -73,5 +73,10 @@ namespace black_mamba
             }
             return false;
         }
+
+        public void die()
+        {
+            line.Clear();
+        }
     }
 }
